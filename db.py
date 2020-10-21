@@ -23,7 +23,28 @@ def generateRDB():
         #v=views count , d=difficulty
         rdb[k]={'v':0,'d':0}
 
+def getnewword(count, increaseview=True):
+    l=[]
+    for k in rdb.keys():
+        if rdb[k]['v']==0:
+            l.append(k)
+            if increaseview:
+                view(k)
+        if len(l)==count:
+            return l
+    return l
+
+def view(word):
+    rdb[word]['v']+=1
+
+def difficult(word,moredifficult=True):
+    if moredifficult:
+        rdb[word]['d']+=1
+    else:
+        rdb[word]['d']-=1
 
 if __name__=='__main__':
     load()
     dump()
+    print('all done...')
+    input('press enter to continue ...')
