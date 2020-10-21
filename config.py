@@ -4,7 +4,8 @@ words_in_each_discover=5
 words_in_each_practise=5
 words_in_each_test=5 #min=5
 
-max_practises_for_each_word=5
+max_practises_for_each_word=3 #min=2
+min_difficulty_for_test=-3 #means if user x time answers to this question correctly so dont ask again this question.
 
 message_for_ending_practicing=""":D  you don't have any words to practise.
 
@@ -21,3 +22,17 @@ press enter to continue..."""
 question_text_before='wich one is the corret meaning for "'
 question_text_after='"'
 
+version='0.2'
+menu=f"""
+VOCAB EXTENDER\tversion:{version}
+
+-> main menu <-
+select one of these
+
+d:\tdiscover new words
+p:\tpractice discovered words
+t:\ttake an exam
+s:\tshow a review of my current status
+
+
+"""
