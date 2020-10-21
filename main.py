@@ -72,10 +72,23 @@ def test(count=config.words_in_each_test):
             score+=1
         i+=1
     clear()
-    print('your score is :',score)
+    print('your score is :',score,'out of',count)
     input('press enter to continue...')
 
+
+def showstats():
+    clear()
+    #total,discovered,not_practised_words,fully_practised_words,fully_tested_words
+    res=db.countwords()
+    print('total words :',res[0])
+    print('discovered words :',res[1])
+    print('not practised words :',res[2])
+    print('fully practiced words :',res[3])
+    print('fully tested words :',res[4])
+    input('\n\npress enter to continue...')
+
 while True:
+    showstats()
     test()
     practise()
     discover()
