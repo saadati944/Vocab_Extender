@@ -51,7 +51,7 @@ def gettest(count):
     global rdb,words
     l=[]
     for k in  words:
-        if rdb[k]['v']>0 :
+        if rdb[k]['v']>0 and rdb[k]['d'] >= config.min_difficulty_for_test:
             l.append(k)
     if count>len(l):
         count=len(l)
@@ -68,6 +68,21 @@ def difficult(word,moredifficult=True):
         rdb[word]['d']+=1
     else:
         rdb[word]['d']-=1
+
+def countwords():
+    l={'discovered':0,'not_practiced_words':0,'fully_practiced_words':0,'fully_tested_words':0}
+    for k in words:
+        if rdb[k]['v']==1:
+            l['discovered']+=1
+            l['not_practiced_words']+=1
+        elif rdb[k]['v']==config.max_practises_for_each_word:
+            l['fully_practiced_words']
+        if rdb[k]['d']<config.min_difficulty_for_test:
+            l['fully_tested_words']+=1
+    return [len(words),l['discovered'],l['not_practiced_words'],l['fully_practiced_words']]
+    #return : total,discovered,not_practiced_words,fully_practiced_words,fully_tested_words
+
+
 
 if __name__=='__main__':
     load()
