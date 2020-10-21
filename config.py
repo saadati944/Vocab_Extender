@@ -18,4 +18,6 @@ message_for_ending_test=""":(  first discover some new words.
 
 press enter to continue..."""
 
-question_text="wich one is the corret meaning for"
+question_text_before='wich one is the corret meaning for "'
+question_text_after='"'
+

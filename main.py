@@ -36,7 +36,7 @@ def practice(count=config.words_in_each_practice):
         i+=1
 
 def question(word):
-    print(config.question_text,word,end='\n\n')
+    print(config.question_text_before,word,config.question_text_after,sep='',end='\n\n')
     correctans=random.randint(1,4)
     wrongans=[]
     for i in range(1,5):
