@@ -51,7 +51,12 @@ def question(word):
     ans=0
     while ans not in ['1','2','3','4']:
         ans=input('enter correct answer (1, 2, 3, 4) : ')
-    return ans==str(correctans)
+    if ans==str(correctans):
+        db.difficult(word,False)
+        return True
+    else:
+        db.difficult(word,True)
+        return False
 
 def test(count=config.words_in_each_test):
     words=db.gettest(count)
