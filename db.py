@@ -1,4 +1,6 @@
 import json,os
+import config
+
 db={}
 rdb={}
 
@@ -23,16 +25,23 @@ def generateRDB():
         #v=views count , d=difficulty
         rdb[k]={'v':0,'d':0}
 
-def getnewword(count, increaseview=True):
+def getnewword(count):
     l=[]
     for k in rdb.keys():
         if rdb[k]['v']==0:
             l.append(k)
-            if increaseview:
-                view(k)
         if len(l)==count:
             return l
     return l
+def getpractice(count):
+    l=[]
+    for k in rdb.keys():
+        if rdb[k]['v']>0 and rdb[k]['v']<=config.max_practices_for_each_word:
+            l.append(k)
+        if len(l)==count:
+            return l
+    return l
+
 
 def view(word):
     rdb[word]['v']+=1
