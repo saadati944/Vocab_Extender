@@ -37,11 +37,11 @@ def getnewword(count):
         if len(l)==count:
             return l
     return l
-def getpractice(count):
+def getpractise(count):
     global rdb,words
     l=[]
     for k in  words:
-        if rdb[k]['v']>0 and rdb[k]['v']<=config.max_practices_for_each_word:
+        if rdb[k]['v']>0 and rdb[k]['v']<=config.max_practises_for_each_word:
             l.append(k)
         if len(l)==count:
             return l

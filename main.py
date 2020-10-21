@@ -21,8 +21,8 @@ def discover(count=config.words_in_each_discover):
         input('\npress enter to continue...')
         i+=1
 
-def practice(count=config.words_in_each_practice):
-    words=db.getpractice(count)
+def practise(count=config.words_in_each_practise):
+    words=db.getpractise(count)
     if len(words)==0:
         input(config.message_for_ending_practicing)
         return
@@ -72,6 +72,6 @@ def test(count=config.words_in_each_test):
 
 while True:
     test()
-    practice()
+    practise()
     discover()
     db.dump()
