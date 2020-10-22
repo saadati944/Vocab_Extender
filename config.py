@@ -7,6 +7,10 @@ words_in_each_test=5 #min=5
 max_practises_for_each_word=3 #min=2
 min_difficulty_for_test=-3 #means if user x time answers to this question correctly so dont ask again this question.
 
+practise_header="\n -> practising <-\n"
+test_header="\n -> examination <-\n"
+discover_header="\n -> discovering <-\n"
+
 message_for_ending_practicing=""":D  you don't have any words to practise.
 
 press enter to continue..."""
@@ -29,10 +33,12 @@ VOCAB EXTENDER\tversion:{version}
 -> main menu <-
 select one of these
 
-d:\tdiscover new words
-p:\tpractice discovered words
-t:\ttake an exam
-s:\tshow a review of my current status
+  e  :\texit and save data
+  d  :\tdiscover new words
+  p  :\tpractise discovered words
+  t  :\ttake an exam
+  s  :\tshow a review of my current status
 
 
 """
+menu_question="your choise ? "

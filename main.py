@@ -15,6 +15,7 @@ def discover(count=config.words_in_each_discover):
     i=1
     for w in words:
         clear()
+        print(config.discover_header)
         print(f"{i} : {w}")
         print("\n",db.db[w])
         db.view(w)
@@ -29,6 +30,7 @@ def practise(count=config.words_in_each_practise):
     i=1
     for w in words:
         clear()
+        print(config.practise_header)
         print(f"{i} : {w}")
         print("\n",db.db[w])
         db.view(w)
@@ -41,13 +43,13 @@ def question(word):
     wrongans=[]
     for i in range(1,5):
         if i==correctans:
-            print(i,') ',db.db[word],sep='',end='\n\n')
+            print('\t',i,') ',db.db[word],sep='',end='\n\n')
         else :
             wr=random.randint(0,len(db.words)-1)
             while wr in wrongans:
                 wr=random.randint(0,len(db.words)-1)
             wrongans.append(wr)
-            print(i,') ',db.db[db.words[wr]],sep='',end='\n\n')
+            print('\t',i,') ',db.db[db.words[wr]],sep='',end='\n\n')
     ans=0
     while ans not in ['1','2','3','4']:
         ans=input('enter correct answer (1, 2, 3, 4) : ')
@@ -67,6 +69,7 @@ def test(count=config.words_in_each_test):
     i=1
     for w in words:
         clear()
+        print(config.test_header)
         print(i,': ',end='')
         if question(w):
             score+=1
@@ -78,18 +81,32 @@ def test(count=config.words_in_each_test):
 
 def showstats():
     clear()
-    #total,discovered,not_practised_words,fully_practised_words,fully_tested_words
+    #returned list : [total,discovered,not_practised_words,fully_practised_words,fully_tested_words]
     res=db.countwords()
     print('total words :',res[0])
     print('discovered words :',res[1])
     print('not practised words :',res[2])
-    print('fully practiced words :',res[3])
+    print('fully practised words :',res[3])
     print('fully tested words :',res[4])
     input('\n\npress enter to continue...')
 
-while True:
-    showstats()
-    test()
-    practise()
-    discover()
-    db.dump()
+def main():
+    while True:
+        clear()
+        print(config.menu)
+        ans = input(config.menu_question).lower()
+        if ans =='e':
+            db.dump()
+            exit()
+        elif ans=='d':
+            discover()
+        elif ans=='p':
+            practise()
+        elif ans == 't':
+            test()
+        elif ans =='s':
+            showstats()
+
+
+if __name__=='__main__':
+    main()
