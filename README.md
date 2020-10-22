@@ -20,11 +20,11 @@
 	
 	lst= { 'word':'meaning' , 'word':'meaning' , ... }
 	
-	with open('','r',encoding='utf-8') as f:
+	with open('db','r',encoding='utf-8') as f:
 		json.dump(lst,f)
 	```
 
-1. <p style="text-align:left">رو پاک کنید **rdb** در قدم آخر باید فایل </p>
+1. رو پاک کنید `rdb` در قدم آخر باید فایل
 
 ## توضیحات فایل ها
 
