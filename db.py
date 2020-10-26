@@ -72,12 +72,13 @@ def difficult(word,moredifficult=True):
 def countwords():
     l={'discovered':0,'not_practised_words':0,'fully_practised_words':0,'fully_tested_words':0}
     for k in words:
-        if rdb[k]['v']>0:
-            l['discovered']+=1
+        if rdb[k]['v']==0:
+            continue
+        l['discovered']+=1
         if rdb[k]['v']==1:
             l['not_practised_words']+=1
-        elif rdb[k]['v']==config.max_practises_for_each_word:
-            l['fully_practised_words']
+        elif rdb[k]['v']>config.max_practises_for_each_word:
+            l['fully_practised_words']+=1
         if rdb[k]['d']<config.min_difficulty_for_test:
             l['fully_tested_words']+=1
     return [len(words),l['discovered'],l['not_practised_words'],l['fully_practised_words'],l['fully_tested_words']]
