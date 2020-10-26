@@ -83,7 +83,9 @@ def countwords():
     return [len(words),l['discovered'],l['not_practised_words'],l['fully_practised_words'],l['fully_tested_words']]
     #return : total,discovered,not_practised_words,fully_practised_words,fully_tested_words
 
-
+def shuffle():
+    global words
+    random.shuffle(words)
 
 if __name__=='__main__':
     load()
