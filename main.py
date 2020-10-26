@@ -5,7 +5,6 @@ import random
 def clear():
     _= system('cls' if name=='nt' else 'clear')
 
-db.load()
 
 def discover(count=config.words_in_each_discover):
     words=db.getnewword(count)
@@ -109,4 +108,6 @@ def main():
 
 
 if __name__=='__main__':
+    db.load()
+    db.shuffle()
     main()
