@@ -7,6 +7,8 @@ words_in_each_test=5 #min=5
 max_practises_for_each_word=3 #min=2
 min_difficulty_for_test=-3 #means if user x time answers to this question correctly so dont ask again this question.
 
+scores_log_file_name='./scores.log'
+
 practise_header="\n -> practising <-\n"
 test_header="\n -> examination <-\n"
 discover_header="\n -> discovering <-\n"

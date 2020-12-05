@@ -75,7 +75,7 @@ def test(count=config.words_in_each_test):
         i+=1
     clear()
     print('your score is :',score,'out of',count)
-    with open('./scores.log', 'a', encoding='utf-8') as f:
+    with open(config.scores_log_file_name, 'a', encoding='utf-8') as f:
         f.write('%s - %d/%d\n'%(time.asctime(), score, count))
     input('press enter to continue...')
 
