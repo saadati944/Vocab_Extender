@@ -1,6 +1,6 @@
 import db, config
 from os import system,name
-import random
+import random, time
 
 def clear():
     _= system('cls' if name=='nt' else 'clear')
@@ -75,6 +75,8 @@ def test(count=config.words_in_each_test):
         i+=1
     clear()
     print('your score is :',score,'out of',count)
+    with open('./scores.log', 'a', encoding='utf-8') as f:
+        f.write('%s - %d/%d\n'%(time.asctime(), score, count))
     input('press enter to continue...')
 
 
