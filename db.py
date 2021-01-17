@@ -36,6 +36,7 @@ def generateRDB():
 
 def getnewword(count):
     global rdb, words
+    shuffle()
     l = []
     for k in words:
         if rdb[k]['v'] == 0:
@@ -47,6 +48,7 @@ def getnewword(count):
 
 def getpractise(count):
     global rdb, words
+    shuffle()
     l = []
     for k in words:
         if rdb[k]['v'] > 0 and rdb[k]['v'] <= config.max_practises_for_each_word:
@@ -58,6 +60,7 @@ def getpractise(count):
 
 def gettest(count):
     global rdb, words
+    shuffle()
     l = []
     for k in words:
         if rdb[k]['v'] > 0 and rdb[k]['d'] >= config.min_difficulty_for_test:
